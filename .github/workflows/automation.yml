@@ -1,0 +1,30 @@
+name: Update Images
+on:  
+  schedule:
+    - cron: '05 * * * *' 
+
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - name: Cache R packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-3-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-3-
+      - name: Run Script
+        run: |-
+          Rscript -e "install.packages('renv')"
+          Rscript -e 'renv::consent(provided = TRUE)'
+          Rscript -e "renv::restore()"
+          Rscript -e "source('stats_hicetnunc.R')"
+      - name: Commit and push files
+        run: |
+          git config --local user.email "ries9112@colorado.edu"
+          git config --local user.name "ries9112"
+          git add .
+          git commit -m "Update GitHub readme" -a
+          git push https://ries9112:${{secrets.GITHUB_TOKEN}}@github.com/ries9112/ries9112.git HEAD:master --force
