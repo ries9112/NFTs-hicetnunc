@@ -210,16 +210,16 @@ ggsave(glue('archive/transactions/stats_hicetnunc_all_txs_{Sys.Date()}.png'))
 
 # TODO - Calculate % of all the network that is active based on day, week, month
 stats_hicetnunc_percent = mutate(stats_hicetnunc, 
-                         Day = stats_day_users/stats_all_users,
-                         Week = stats_week_users/stats_all_users,
-                         Month = stats_month_users/stats_all_users)
+                                 Day = stats_day_users/stats_all_users,
+                                 Week = stats_week_users/stats_all_users,
+                                 Month = stats_month_users/stats_all_users)
 # Reshape the data to avoid issues coloring
 stats_hicetnunc_percent = gather(stats_hicetnunc_percent, key = "days_out", 
-                         value = "percent_active", Day, Week, Month) %>% 
+                                 value = "percent_active", Day, Week, Month) %>% 
   select(date_utc, date_time_utc, days_out, percent_active)
 # Reorder factors
 stats_hicetnunc_percent$days_out <- factor(stats_hicetnunc_percent$days_out, 
-                                   levels = c("Day", "Week", "Month"))
+                                           levels = c("Day", "Week", "Month"))
 
 # Visualize Active Users
 ggplot(data = stats_hicetnunc_percent,
