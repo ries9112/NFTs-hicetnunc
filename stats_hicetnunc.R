@@ -1,7 +1,7 @@
 library(pacman)
 # Load packages
 p_load('pins','ggplot2','anytime','ggthemes','fs','gganimate','magick','dplyr',
-       'transformr', 'ggforce','scales','tidyr')
+       'transformr', 'ggforce','scales','tidyr','glue')
 
 # Register Board for data pull
 board_register("https://raw.githubusercontent.com/predictcrypto/pins/master/","pins_repo")
@@ -25,11 +25,14 @@ ggplot(data = stats_hicetnunc,
                         label = date_time_utc,
                         description = paste0('Min daily users - ', stats_day_users))) +
   theme_solarized() +
-  xlab('Date Time Collected (UTC)') +
-  ylab('Number of Users') +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Number of Users') +
   ggtitle(paste('Hicetnunc Daily Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_daily_users.png')
+# Also archive
+ggsave(glue('archive/users/stats_hicetnunc_daily_users_{Sys.Date()}.png'))
+
 
 # Daily Transactions
 ggplot(data = stats_hicetnunc,
@@ -47,11 +50,14 @@ ggplot(data = stats_hicetnunc,
                         label = date_time_utc,
                         description = paste0('Min daily txs - ', stats_day_txs))) +
   theme_solarized() +
-  xlab('Date Time Collected (UTC)') +
-  ylab('Number of Transactions') +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Number of Transactions') +
   ggtitle(paste('Hicetnunc Daily Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_daily_txs.png')
+# Also archive
+ggsave(glue('archive/transactions/stats_hicetnunc_daily_txs_{Sys.Date()}.png'))
+
 
 # Weekly Users
 ggplot(data = stats_hicetnunc,
@@ -69,11 +75,14 @@ ggplot(data = stats_hicetnunc,
                         label = date_time_utc,
                         description = paste0('Min daily users - ', stats_week_users))) +
   theme_solarized() +
-  xlab('Date Time Collected (UTC)') +
-  ylab('Number of Users') +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Number of Users') +
   ggtitle(paste('Hicetnunc Weekly Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_week_users.png')
+# Also archive
+ggsave(glue('archive/users/stats_hicetnunc_week_users_{Sys.Date()}.png'))
+
 
 # Weekly Transactions
 ggplot(data = stats_hicetnunc,
@@ -91,11 +100,13 @@ ggplot(data = stats_hicetnunc,
                         label = date_time_utc,
                         description = paste0('Min daily txs - ', stats_week_txs))) +
   theme_solarized() +
-  xlab('Date Time Collected (UTC)') +
-  ylab('Number of Transactions') +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Number of Transactions') +
   ggtitle(paste('Hicetnunc Weekly Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_week_txs.png')
+# Also archive
+ggsave(glue('archive/transactions/stats_hicetnunc_week_txs_{Sys.Date()}.png'))
 
 
 # Monthly Users
@@ -114,11 +125,14 @@ ggplot(data = stats_hicetnunc,
                         label = date_time_utc,
                         description = paste0('Min daily users - ', stats_month_users))) +
   theme_solarized() +
-  xlab('Date Time Collected (UTC)') +
-  ylab('Number of Users') +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Number of Users') +
   ggtitle(paste('Hicetnunc Monthly Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_month_users.png')
+# Also archive
+ggsave(glue('archive/users/stats_hicetnunc_month_users_{Sys.Date()}.png'))
+
 
 # Monthly Transactions
 ggplot(data = stats_hicetnunc,
@@ -136,11 +150,13 @@ ggplot(data = stats_hicetnunc,
                         label = date_time_utc,
                         description = paste0('Min daily txs - ', stats_month_txs))) +
   theme_solarized() +
-  xlab('Date Time Collected (UTC)') +
-  ylab('Number of Transactions') +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Number of Transactions') +
   ggtitle(paste('Hicetnunc Monthly Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_month_txs.png')
+# Also archive
+ggsave(glue('archive/transactions/stats_hicetnunc_month_txs_{Sys.Date()}.png'))
 
 
 # All-time Users
@@ -159,11 +175,13 @@ ggplot(data = stats_hicetnunc,
                         label = date_time_utc,
                         description = paste0('Min daily users - ', stats_all_users))) +
   theme_solarized() +
-  xlab('Date Time Collected (UTC)') +
-  ylab('Number of Users') +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Number of Users') +
   ggtitle(paste('Hicetnunc All-Time Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_all_users.png')
+# Also archive
+ggsave(glue('archive/users/stats_hicetnunc_all_users_{Sys.Date()}.png'))
 
 # All-time Transactions
 ggplot(data = stats_hicetnunc,
@@ -181,32 +199,34 @@ ggplot(data = stats_hicetnunc,
                         label = date_time_utc,
                         description = paste0('Min daily txs - ', stats_all_txs))) +
   theme_solarized() +
-  xlab('Date Time Collected (UTC)') +
-  ylab('Number of Transactions') +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Number of Transactions') +
   ggtitle(paste('Hicetnunc All-Time Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_all_txs.png')
+# Also make an archive
+ggsave(glue('archive/transactions/stats_hicetnunc_all_txs_{Sys.Date()}.png'))
 
 
 # TODO - Calculate % of all the network that is active based on day, week, month
-stats_hicetnunc = mutate(stats_hicetnunc, 
+stats_hicetnunc_percent = mutate(stats_hicetnunc, 
                          Day = stats_day_users/stats_all_users,
                          Week = stats_week_users/stats_all_users,
                          Month = stats_month_users/stats_all_users)
 # Reshape the data to avoid issues coloring
-stats_hicetnunc = gather(stats_hicetnunc, key = "days_out", 
+stats_hicetnunc_percent = gather(stats_hicetnunc_percent, key = "days_out", 
                          value = "percent_active", Day, Week, Month) %>% 
   select(date_utc, date_time_utc, days_out, percent_active)
 # Reorder factors
-stats_hicetnunc$days_out <- factor(stats_hicetnunc$days_out, 
+stats_hicetnunc_percent$days_out <- factor(stats_hicetnunc_percent$days_out, 
                                    levels = c("Day", "Week", "Month"))
 
 # Visualize Active Users
-ggplot(data = stats_hicetnunc,
+ggplot(data = stats_hicetnunc_percent,
        aes(x = as.POSIXct(date_time_utc), y = percent_active, color=days_out)) + 
   geom_line(size=1.2) +
   geom_point(size=0.7) +
-  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc_percent$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   theme_solarized() +
   xlab('Date Time Collected (UTC)') +
@@ -220,5 +240,5 @@ ggplot(data = stats_hicetnunc,
 # Save chart as image
 ggsave('stats_hicetnunc_active_users.png')
 # Also make an archive
-
+ggsave(glue('archive/active_users_percent/stats_hicetnunc_active_users_{Sys.Date()}.png'))
 
