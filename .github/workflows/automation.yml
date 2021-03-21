@@ -1,4 +1,4 @@
-name: Update GIFs
+name: Update Images
 on:  
   schedule:
     - cron: '10 * * * *' 
