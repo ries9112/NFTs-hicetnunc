@@ -1,6 +1,7 @@
 library(pacman)
 # Load packages
-p_load('pins','ggplot2','anytime','ggthemes','fs','gganimate','magick','dplyr','transformr', 'ggforce')
+p_load('pins','ggplot2','anytime','ggthemes','fs','gganimate','magick','dplyr',
+       'transformr', 'ggforce','scales','tidyr')
 
 # Register Board for data pull
 board_register("https://raw.githubusercontent.com/predictcrypto/pins/master/","pins_repo")
@@ -189,25 +190,35 @@ ggsave('stats_hicetnunc_all_txs.png')
 
 # TODO - Calculate % of all the network that is active based on day, week, month
 stats_hicetnunc = mutate(stats_hicetnunc, 
-                         percent_active_day = stats_day_users/stats_all_users,
-                         percent_active_week = stats_week_users/stats_all_users,
-                         percent_active_month = stats_month_users/stats_all_users)
+                         Day = stats_day_users/stats_all_users,
+                         Week = stats_week_users/stats_all_users,
+                         Month = stats_month_users/stats_all_users)
+# Reshape the data to avoid issues coloring
+stats_hicetnunc = gather(stats_hicetnunc, key = "days_out", 
+                         value = "percent_active", Day, Week, Month) %>% 
+  select(date_utc, date_time_utc, days_out, percent_active)
+# Reorder factors
+stats_hicetnunc$days_out <- factor(stats_hicetnunc$days_out, 
+                                   levels = c("Day", "Week", "Month"))
+
 # Visualize Active Users
 ggplot(data = stats_hicetnunc,
-       aes(x = as.POSIXct(date_time_utc), y = percent_active_day)) + 
-  geom_line(size=1.2, aes(color='Daily')) +
-  geom_point(size=0.7, aes(color='Daily')) +
-  geom_line(size=1.2, aes(y = percent_active_week, color='Weekly')) +
-  geom_point(size=0.7, aes(y = percent_active_week, color='Weekly')) +
-  geom_line(size=1.2, aes(y = percent_active_month, color='Monthly')) +
-  geom_point(size=0.7, aes(y = percent_active_month, color='Monthly')) +
+       aes(x = as.POSIXct(date_time_utc), y = percent_active, color=days_out)) + 
+  geom_line(size=1.2) +
+  geom_point(size=0.7) +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   theme_solarized() +
   xlab('Date Time Collected (UTC)') +
-  ylab('Number of Transactions') +
-  ggtitle(paste('Hicetnunc Percent of Total Active Users')) 
+  ylab('Active Users % of Total') +
+  ggtitle(paste('Hicetnunc Active Users - Percent of Total'))  + 
+  labs(color='Days Out') +
+  scale_y_continuous(labels = scales::percent) +
+  scale_x_datetime(date_labels = "%m/%d/%y") +
+  # Tried changing the order but was not able to
+  scale_color_manual(labels = c("Day", "Week","Month"), values = c("#6DB9BE", "#87BE6D", "#876DBE"))
 # Save chart as image
 ggsave('stats_hicetnunc_active_users.png')
+# Also make an archive
 
 
