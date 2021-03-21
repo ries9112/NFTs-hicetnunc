@@ -1,7 +1,10 @@
 library(pacman)
+#devtools::install_github('thomasp85/ggfx')
+# devtools::install_github('lenkiefer/darklyplot')
+
 # Load packages
-p_load('pins','ggplot2','anytime','ggthemes','fs','gganimate','magick','dplyr',
-       'transformr', 'ggforce','scales','tidyr','glue')
+p_load('pins','ggplot2','anytime','ggthemes','fs','gganimate','magick','dplyr','devtools',
+       'transformr', 'ggforce','scales','tidyr','glue','darklyplot','ggfx')
 
 # Register Board for data pull
 board_register("https://raw.githubusercontent.com/predictcrypto/pins/master/","pins_repo")
@@ -242,3 +245,25 @@ ggsave('stats_hicetnunc_active_users.png')
 # Also make an archive
 ggsave(glue('archive/active_users_percent/stats_hicetnunc_active_users_{Sys.Date()}.png'))
 
+# 
+# # GGFX - WAITING TO PROPERLY TEST inner AND outer GLOW ONCE MORE DATA COMES IN!
+# ggplot(data = stats_hicetnunc_percent,
+#        aes(x = as.POSIXct(date_time_utc), y = percent_active, color=days_out)) + 
+#   with_outer_glow(geom_line(size=1.2)) + # Can do either `with_inner_glow` or `with_outer_glow`
+#   #with_inner_glow(geom_point(size=5)) +
+#   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc_percent$date_time_utc), ' - UTC'),
+#        caption='Data source: better-call.dev API') + 
+#   theme_solarized() +
+#   xlab('Date Time Collected (UTC)') +
+#   ylab('Active Users % of Total') +
+#   ggtitle(paste('Hicetnunc Active Users - Percent of Total'))  + 
+#   labs(color='Days Out') +
+#   scale_y_continuous(labels = scales::percent) +
+#   scale_x_datetime(date_labels = "%m/%d/%y") +
+#   # Tried changing the order but was not able to
+#   scale_color_manual(labels = c("Day", "Week","Month"), values = c("#6DB9BE", "#87BE6D", "#876DBE"))
+# #darklyplot::theme_dark2()
+# # Save chart as image
+# ggsave('stats_hicetnunc_active_users.png')
+# # Also make an archive
+# ggsave(glue('archive/active_users_percent/stats_hicetnunc_active_users_{Sys.Date()}.png'))
