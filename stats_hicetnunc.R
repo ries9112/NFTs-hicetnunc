@@ -72,11 +72,11 @@ ggplot(data = stats_hicetnunc,
   # Circle max
   geom_mark_ellipse(aes(filter = stats_week_users == max(stats_week_users),
                         label = date_time_utc,
-                        description = paste0('Max daily users - ', stats_week_users))) +
+                        description = paste0('Max weekly users - ', stats_week_users))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_week_users == min(stats_week_users),
                         label = date_time_utc,
-                        description = paste0('Min daily users - ', stats_week_users))) +
+                        description = paste0('Min weekly users - ', stats_week_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
@@ -97,11 +97,11 @@ ggplot(data = stats_hicetnunc,
   # Circle max
   geom_mark_ellipse(aes(filter = stats_week_txs == max(stats_week_txs),
                         label = date_time_utc,
-                        description = paste0('Max daily txs - ', stats_week_txs))) +
+                        description = paste0('Max weekly txs - ', stats_week_txs))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_week_txs == min(stats_week_txs),
                         label = date_time_utc,
-                        description = paste0('Min daily txs - ', stats_week_txs))) +
+                        description = paste0('Min weekly txs - ', stats_week_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
@@ -122,11 +122,11 @@ ggplot(data = stats_hicetnunc,
   # Circle max
   geom_mark_ellipse(aes(filter = stats_month_users == max(stats_month_users),
                         label = date_time_utc,
-                        description = paste0('Max daily users - ', stats_month_users))) +
+                        description = paste0('Max monthly users - ', stats_month_users))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_month_users == min(stats_month_users),
                         label = date_time_utc,
-                        description = paste0('Min daily users - ', stats_month_users))) +
+                        description = paste0('Min monthly users - ', stats_month_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
@@ -147,11 +147,11 @@ ggplot(data = stats_hicetnunc,
   # Circle max
   geom_mark_ellipse(aes(filter = stats_month_txs == max(stats_month_txs),
                         label = date_time_utc,
-                        description = paste0('Max daily txs - ', stats_month_txs))) +
+                        description = paste0('Max monthly txs - ', stats_month_txs))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_month_txs == min(stats_month_txs),
                         label = date_time_utc,
-                        description = paste0('Min daily txs - ', stats_month_txs))) +
+                        description = paste0('Min monthly txs - ', stats_month_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
@@ -172,11 +172,11 @@ ggplot(data = stats_hicetnunc,
   # Circle max
   geom_mark_ellipse(aes(filter = stats_all_users == max(stats_all_users),
                         label = date_time_utc,
-                        description = paste0('Max daily users - ', stats_all_users))) +
+                        description = paste0('Max all time users - ', stats_all_users))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_all_users == min(stats_all_users),
                         label = date_time_utc,
-                        description = paste0('Min daily users - ', stats_all_users))) +
+                        description = paste0('Min all time users - ', stats_all_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
@@ -196,11 +196,11 @@ ggplot(data = stats_hicetnunc,
   # Circle max
   geom_mark_ellipse(aes(filter = stats_all_txs == max(stats_all_txs),
                         label = date_time_utc,
-                        description = paste0('Max daily txs - ', stats_all_txs))) +
+                        description = paste0('Max all time txs - ', stats_all_txs))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_all_txs == min(stats_all_txs),
                         label = date_time_utc,
-                        description = paste0('Min daily txs - ', stats_all_txs))) +
+                        description = paste0('Min all time txs - ', stats_all_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
