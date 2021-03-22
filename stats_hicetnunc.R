@@ -30,7 +30,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
-  ggtitle(paste('Hicetnunc Daily Users')) 
+  ggtitle(paste('hic et nunc Daily Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_daily_users.png')
 # Also archive
@@ -55,7 +55,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('Hicetnunc Daily Transactions')) 
+  ggtitle(paste('hic et nunc Daily Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_daily_txs.png')
 # Also archive
@@ -80,7 +80,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
-  ggtitle(paste('Hicetnunc Weekly Users')) 
+  ggtitle(paste('hic et nunc Weekly Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_week_users.png')
 # Also archive
@@ -105,7 +105,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('Hicetnunc Weekly Transactions')) 
+  ggtitle(paste('hic et nunc Weekly Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_week_txs.png')
 # Also archive
@@ -130,7 +130,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
-  ggtitle(paste('Hicetnunc Monthly Users')) 
+  ggtitle(paste('hic et nunc Monthly Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_month_users.png')
 # Also archive
@@ -155,7 +155,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('Hicetnunc Monthly Transactions')) 
+  ggtitle(paste('hic et nunc Monthly Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_month_txs.png')
 # Also archive
@@ -176,7 +176,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
-  ggtitle(paste('Hicetnunc All-Time Users')) 
+  ggtitle(paste('hic et nunc All-Time Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_all_users.png')
 # Also archive
@@ -196,7 +196,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('Hicetnunc All-Time Transactions')) 
+  ggtitle(paste('hic et nunc All-Time Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_all_txs.png')
 # Also make an archive
@@ -226,7 +226,7 @@ ggplot(data = stats_hicetnunc_percent,
   theme_solarized() +
   xlab('Date Time Collected (UTC)') +
   ylab('Active Users % of Total') +
-  ggtitle(paste('Hicetnunc Active Users - Percent of Total'))  + 
+  ggtitle(paste('hic et nunc Active Users - Percent of Total'))  + 
   labs(color='Days Out') +
   scale_y_continuous(labels = scales::percent) +
   scale_x_datetime(date_labels = "%m/%d/%y") +
