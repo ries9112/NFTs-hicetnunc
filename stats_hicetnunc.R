@@ -172,7 +172,7 @@ ggplot(data = stats_hicetnunc,
   # Circle max
   geom_mark_ellipse(aes(filter = stats_all_users == max(stats_all_users),
                         label = date_time_utc,
-                        description = paste0('Max all time users - ', stats_all_users))) +
+                        description = paste0('all time users - ', stats_all_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
@@ -192,7 +192,7 @@ ggplot(data = stats_hicetnunc,
   # Circle max
   geom_mark_ellipse(aes(filter = stats_all_txs == max(stats_all_txs),
                         label = date_time_utc,
-                        description = paste0('Max all time txs - ', stats_all_txs))) +
+                        description = paste0('all time txs - ', stats_all_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
