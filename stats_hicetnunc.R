@@ -16,7 +16,7 @@ stats_hicetnunc <- pin_get("stats_hicetnunc", "pins_repo")
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_day_users)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -41,7 +41,7 @@ ggsave(glue('archive/users/stats_hicetnunc_daily_users_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_day_txs)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -66,7 +66,7 @@ ggsave(glue('archive/transactions/stats_hicetnunc_daily_txs_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_week_users)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -91,7 +91,7 @@ ggsave(glue('archive/users/stats_hicetnunc_week_users_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_week_txs)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -116,7 +116,7 @@ ggsave(glue('archive/transactions/stats_hicetnunc_week_txs_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_month_users)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -141,7 +141,7 @@ ggsave(glue('archive/users/stats_hicetnunc_month_users_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_month_txs)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -166,7 +166,7 @@ ggsave(glue('archive/transactions/stats_hicetnunc_month_txs_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_all_users)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -190,7 +190,7 @@ ggsave(glue('archive/users/stats_hicetnunc_all_users_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_all_txs)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -228,7 +228,7 @@ stats_hicetnunc_percent$days_out <- factor(stats_hicetnunc_percent$days_out,
 ggplot(data = stats_hicetnunc_percent,
        aes(x = as.POSIXct(date_time_utc), y = percent_active, color=days_out)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7) +
+  geom_point(size=2.5) +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc_percent$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   theme_solarized() +
