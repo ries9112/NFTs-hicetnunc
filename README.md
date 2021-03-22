@@ -2,6 +2,10 @@
 A repository for automating NFTs posted to hicetnunc
 
 
+### Percentage Active Users
+
+<img src="stats_hicetnunc_active_users.png" width="450"> 
+
 ### Daily users
 
 <img src="stats_hicetnunc_daily_users.png" width="450">  
@@ -35,11 +39,6 @@ A repository for automating NFTs posted to hicetnunc
 ### All-time transactions
 
 <img src="stats_hicetnunc_all_txs.png" width="450"> 
-
-
-### Percentage Active Users
-
-<img src="stats_hicetnunc_active_users.png" width="450"> 
 
 
 
