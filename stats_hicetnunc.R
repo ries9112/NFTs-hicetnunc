@@ -16,7 +16,7 @@ stats_hicetnunc <- pin_get("stats_hicetnunc", "pins_repo")
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_day_users)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -30,7 +30,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
-  ggtitle(paste('Hicetnunc Daily Users')) 
+  ggtitle(paste('hic et nunc Daily Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_daily_users.png')
 # Also archive
@@ -41,7 +41,7 @@ ggsave(glue('archive/users/stats_hicetnunc_daily_users_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_day_txs)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
@@ -55,7 +55,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('Hicetnunc Daily Transactions')) 
+  ggtitle(paste('hic et nunc Daily Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_daily_txs.png')
 # Also archive
@@ -66,21 +66,21 @@ ggsave(glue('archive/transactions/stats_hicetnunc_daily_txs_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_week_users)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
   geom_mark_ellipse(aes(filter = stats_week_users == max(stats_week_users),
                         label = date_time_utc,
-                        description = paste0('Max daily users - ', stats_week_users))) +
+                        description = paste0('Max weekly users - ', stats_week_users))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_week_users == min(stats_week_users),
                         label = date_time_utc,
-                        description = paste0('Min daily users - ', stats_week_users))) +
+                        description = paste0('Min weekly users - ', stats_week_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
-  ggtitle(paste('Hicetnunc Weekly Users')) 
+  ggtitle(paste('hic et nunc Weekly Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_week_users.png')
 # Also archive
@@ -91,21 +91,21 @@ ggsave(glue('archive/users/stats_hicetnunc_week_users_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_week_txs)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
   geom_mark_ellipse(aes(filter = stats_week_txs == max(stats_week_txs),
                         label = date_time_utc,
-                        description = paste0('Max daily txs - ', stats_week_txs))) +
+                        description = paste0('Max weekly txs - ', stats_week_txs))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_week_txs == min(stats_week_txs),
                         label = date_time_utc,
-                        description = paste0('Min daily txs - ', stats_week_txs))) +
+                        description = paste0('Min weekly txs - ', stats_week_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('Hicetnunc Weekly Transactions')) 
+  ggtitle(paste('hic et nunc Weekly Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_week_txs.png')
 # Also archive
@@ -116,21 +116,21 @@ ggsave(glue('archive/transactions/stats_hicetnunc_week_txs_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_month_users)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
   geom_mark_ellipse(aes(filter = stats_month_users == max(stats_month_users),
                         label = date_time_utc,
-                        description = paste0('Max daily users - ', stats_month_users))) +
+                        description = paste0('Max monthly users - ', stats_month_users))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_month_users == min(stats_month_users),
                         label = date_time_utc,
-                        description = paste0('Min daily users - ', stats_month_users))) +
+                        description = paste0('Min monthly users - ', stats_month_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
-  ggtitle(paste('Hicetnunc Monthly Users')) 
+  ggtitle(paste('hic et nunc Monthly Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_month_users.png')
 # Also archive
@@ -141,21 +141,21 @@ ggsave(glue('archive/users/stats_hicetnunc_month_users_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_month_txs)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
   geom_mark_ellipse(aes(filter = stats_month_txs == max(stats_month_txs),
                         label = date_time_utc,
-                        description = paste0('Max daily txs - ', stats_month_txs))) +
+                        description = paste0('Max monthly txs - ', stats_month_txs))) +
   # Now the same to circle the minimum:
   geom_mark_ellipse(aes(filter = stats_month_txs == min(stats_month_txs),
                         label = date_time_utc,
-                        description = paste0('Min daily txs - ', stats_month_txs))) +
+                        description = paste0('Min monthly txs - ', stats_month_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('Hicetnunc Monthly Transactions')) 
+  ggtitle(paste('hic et nunc Monthly Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_month_txs.png')
 # Also archive
@@ -166,21 +166,17 @@ ggsave(glue('archive/transactions/stats_hicetnunc_month_txs_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_all_users)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
   geom_mark_ellipse(aes(filter = stats_all_users == max(stats_all_users),
                         label = date_time_utc,
-                        description = paste0('Max daily users - ', stats_all_users))) +
-  # Now the same to circle the minimum:
-  geom_mark_ellipse(aes(filter = stats_all_users == min(stats_all_users),
-                        label = date_time_utc,
-                        description = paste0('Min daily users - ', stats_all_users))) +
+                        description = paste0('all time users - ', stats_all_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
-  ggtitle(paste('Hicetnunc All-Time Users')) 
+  ggtitle(paste('hic et nunc All-Time Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_all_users.png')
 # Also archive
@@ -190,21 +186,17 @@ ggsave(glue('archive/users/stats_hicetnunc_all_users_{Sys.Date()}.png'))
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_all_txs)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7, color='dark green') +
+  geom_point(size=2, color='dark green') +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   # Circle max
   geom_mark_ellipse(aes(filter = stats_all_txs == max(stats_all_txs),
                         label = date_time_utc,
-                        description = paste0('Max daily txs - ', stats_all_txs))) +
-  # Now the same to circle the minimum:
-  geom_mark_ellipse(aes(filter = stats_all_txs == min(stats_all_txs),
-                        label = date_time_utc,
-                        description = paste0('Min daily txs - ', stats_all_txs))) +
+                        description = paste0('all time txs - ', stats_all_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('Hicetnunc All-Time Transactions')) 
+  ggtitle(paste('hic et nunc All-Time Transactions')) 
 # Save chart as image
 ggsave('stats_hicetnunc_all_txs.png')
 # Also make an archive
@@ -228,13 +220,13 @@ stats_hicetnunc_percent$days_out <- factor(stats_hicetnunc_percent$days_out,
 ggplot(data = stats_hicetnunc_percent,
        aes(x = as.POSIXct(date_time_utc), y = percent_active, color=days_out)) + 
   geom_line(size=1.2) +
-  geom_point(size=0.7) +
+  geom_point(size=2.5) +
   labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc_percent$date_time_utc), ' - UTC'),
        caption='Data source: better-call.dev API') + 
   theme_solarized() +
   xlab('Date Time Collected (UTC)') +
   ylab('Active Users % of Total') +
-  ggtitle(paste('Hicetnunc Active Users - Percent of Total'))  + 
+  ggtitle(paste('hic et nunc Active Users - Percent of Total'))  + 
   labs(color='Days Out') +
   scale_y_continuous(labels = scales::percent) +
   scale_x_datetime(date_labels = "%m/%d/%y") +
