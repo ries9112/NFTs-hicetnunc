@@ -48,3 +48,5 @@ A repository for automating NFTs posted to hicetnunc
 
 2. If #1 works, finalize the chart started on desktop (ggfx repo using `load_all`)
 
+3. Create comparisons to kalamint data, for example how many average transactions per number of users on day, week, month basis?
+
