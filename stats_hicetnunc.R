@@ -176,7 +176,7 @@ ggplot(data = stats_hicetnunc,
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
   scale_y_continuous('Number of Users') +
-  ggtitle(paste('hic et nunc All-Time Users')) 
+  ggtitle(paste('hic et nunc Total Users')) 
 # Save chart as image
 ggsave('stats_hicetnunc_all_users.png')
 # Also archive
