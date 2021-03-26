@@ -41,6 +41,9 @@ A repository for automating NFTs posted to hicetnunc
 <img src="stats_hicetnunc_all_txs.png" width="450"> 
 
 
+The charts above are enabled by the [ggforce](https://ggforce.data-imaginist.com/) (for the annotations), [ggplot](https://ggplot2.tidyverse.org/) (for the charts), [scales](https://scales.r-lib.org/) (to adjust axis formats), [pins](https://pins.rstudio.com/) (for data transfer), and [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) packages.
+
+
 
 ## Next steps:
 
