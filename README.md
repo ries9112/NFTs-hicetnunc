@@ -16,7 +16,7 @@ A repository for automating NFTs posted to hicetnunc
 
 ### Weekly users
 
-<img src="stats_hicetnunc_week_txs.png" width="450">  
+<img src="stats_hicetnunc_week_users.png" width="450">  
 
 ### Weekly transactions
 
