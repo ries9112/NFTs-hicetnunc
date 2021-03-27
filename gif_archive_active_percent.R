@@ -9,7 +9,7 @@ img_list <- lapply(imgs, image_read)
 img_joined <- image_join(img_list)
 
 ## animate at 2 frames per second
-img_animated <- image_animate(img_joined, fps = 2)
+img_animated <- image_animate(img_joined, fps = 0.5)
 
 ## view animated image
 img_animated
@@ -32,7 +32,7 @@ img_list <- lapply(imgs, image_read)
 img_joined <- image_join(img_list)
 
 ## animate at 2 frames per second
-img_animated <- image_animate(img_joined, fps = 2)
+img_animated <- image_animate(img_joined, fps = 0.5)
 
 ## view animated image
 img_animated
