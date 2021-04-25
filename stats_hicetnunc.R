@@ -259,3 +259,35 @@ ggsave(glue('archive/active_users_percent/stats_hicetnunc_active_users_{Sys.Date
 # ggsave('stats_hicetnunc_active_users.png')
 # # Also make an archive
 # ggsave(glue('archive/active_users_percent/stats_hicetnunc_active_users_{Sys.Date()}.png'))
+
+
+# NOW hDAO
+# Pull data
+hdao_price <- pin_get("hdao_price", "pins_repo")
+# Daily Users
+ggplot(data = hdao_price,
+       aes(x = as.POSIXct(date_time_utc), y = hdao_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = hdao_price == max(hdao_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', hdao_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = hdao_price == min(hdao_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', hdao_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of hDAO ($XTZ)')) 
+# Save chart as image
+ggsave('hdao_price.png')
+# Also archive
+ggsave(glue('archive/hdao_price/hdao_price_{Sys.Date()}.png'))
+
+
+
+
