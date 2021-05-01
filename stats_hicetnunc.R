@@ -290,4 +290,203 @@ ggsave(glue('archive/hdao_price/hdao_price_{Sys.Date()}.png'))
 
 
 
+# NOW wrap
+# Pull data
+wrap_price <- pin_get("wrap_price", "pins_repo")
+# Daily Users
+ggplot(data = wrap_price,
+       aes(x = as.POSIXct(date_time_utc), y = wrap_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = wrap_price == max(wrap_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', wrap_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = wrap_price == min(wrap_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', wrap_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of WRAP ($XTZ)')) 
+# Save chart as image
+ggsave('wrap_price.png')
+# Also archive
+ggsave(glue('archive/wrap_price/wrap_price_{Sys.Date()}.png'))
+
+
+# NOW wxtz
+# Pull data
+wxtz_price <- pin_get("wxtz_price", "pins_repo")
+# Daily Users
+ggplot(data = wxtz_price,
+       aes(x = as.POSIXct(date_time_utc), y = wxtz_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = wxtz_price == max(wxtz_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', wxtz_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = wxtz_price == min(wxtz_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', wxtz_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of wXTZ ($XTZ)')) 
+# Save chart as image
+ggsave('wxtz_price.png')
+# Also archive
+ggsave(glue('archive/wxtz_price/wxtz_price_{Sys.Date()}.png'))
+
+
+# NOW stkr
+# Pull data
+stkr_price <- pin_get("stkr_price", "pins_repo")
+# Daily Users
+ggplot(data = stkr_price,
+       aes(x = as.POSIXct(date_time_utc), y = stkr_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = stkr_price == max(stkr_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', stkr_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = stkr_price == min(stkr_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', stkr_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of STKR ($XTZ)')) 
+# Save chart as image
+ggsave('stkr_price.png')
+# Also archive
+ggsave(glue('archive/stkr_price/stkr_price_{Sys.Date()}.png'))
+
+
+# NOW kusd
+# Pull data
+kusd_price <- pin_get("kusd_price", "pins_repo")
+# Daily Users
+ggplot(data = kusd_price,
+       aes(x = as.POSIXct(date_time_utc), y = kusd_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = kusd_price == max(kusd_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', kusd_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = kusd_price == min(kusd_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', kusd_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of KUSD ($XTZ)')) 
+# Save chart as image
+ggsave('kusd_price.png')
+# Also archive
+ggsave(glue('archive/kusd_price/kusd_price_{Sys.Date()}.png'))
+
+
+# NOW usds
+# Pull data
+usds_price <- pin_get("usds_price", "pins_repo")
+# Daily Users
+ggplot(data = usds_price,
+       aes(x = as.POSIXct(date_time_utc), y = usds_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = usds_price == max(usds_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', usds_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = usds_price == min(usds_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', usds_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of USDS ($XTZ)')) 
+# Save chart as image
+ggsave('usds_price.png')
+# Also archive
+ggsave(glue('archive/usds_price/usds_price_{Sys.Date()}.png'))
+
+
+# NOW usdtz
+# Pull data
+usdtz_price <- pin_get("usdtz_price", "pins_repo")
+# Daily Users
+ggplot(data = usdtz_price,
+       aes(x = as.POSIXct(date_time_utc), y = usdtz_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = usdtz_price == max(usdtz_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', usdtz_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = usdtz_price == min(usdtz_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', usdtz_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of USDtz ($XTZ)')) 
+# Save chart as image
+ggsave('usdtz_price.png')
+# Also archive
+ggsave(glue('archive/usdtz_price/usdtz_price_{Sys.Date()}.png'))
+
+
+# NOW ethtz
+# Pull data
+ethtz_price <- pin_get("ethtz_price", "pins_repo")
+# Daily Users
+ggplot(data = ethtz_price,
+       aes(x = as.POSIXct(date_time_utc), y = ethtz_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = ethtz_price == max(ethtz_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', ethtz_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = ethtz_price == min(ethtz_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', ethtz_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of ETHtz ($XTZ)')) 
+# Save chart as image
+ggsave('ethtz_price.png')
+# Also archive
+ggsave(glue('archive/ethtz_price/ethtz_price_{Sys.Date()}.png'))
+
+
+
+
+
 
