@@ -485,7 +485,59 @@ ggsave('ethtz_price.png')
 # Also archive
 ggsave(glue('archive/ethtz_price/ethtz_price_{Sys.Date()}.png'))
 
+# NOW sDAO
+# Pull data
+sdao_price <- pin_get("sdao_price", "pins_repo")
+# Daily Users
+ggplot(data = sdao_price,
+       aes(x = as.POSIXct(date_time_utc), y = sdao_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = sdao_price == max(sdao_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', sdao_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = sdao_price == min(sdao_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', sdao_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of SDAO ($XTZ)')) 
+# Save chart as image
+ggsave('sdao_price.png')
+# Also archive
+ggsave(glue('archive/sdao_price/sdao_price_{Sys.Date()}.png'))
 
+# NOW rSAL
+# Pull data
+rsal_price <- pin_get("rsal_price", "pins_repo")
+# Daily Users
+ggplot(data = rsal_price,
+       aes(x = as.POSIXct(date_time_utc), y = rsal_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = rsal_price == max(rsal_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', rsal_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = rsal_price == min(rsal_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', rsal_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of rsal ($XTZ)')) 
+# Save chart as image
+ggsave('rsal_price.png')
+# Also archive
+ggsave(glue('archive/rsal_price/rsal_price_{Sys.Date()}.png'))
 
 
 
