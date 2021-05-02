@@ -568,4 +568,30 @@ ggsave('tz10x_price.png')
 ggsave(glue('archive/tz10x_price/tz10x_price_{Sys.Date()}.png'))
 
 
+# NOW bDAO
+# Pull data
+bdao_price <- pin_get("bdao_price", "pins_repo")
+# Daily Users
+ggplot(data = bdao_price,
+       aes(x = as.POSIXct(date_time_utc), y = bdao_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = bdao_price == max(bdao_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', bdao_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = bdao_price == min(bdao_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', bdao_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of bDAO ($XTZ)')) 
+# Save chart as image
+ggsave('bdao_price.png')
+# Also archive
+ggsave(glue('archive/bdao_price/bdao_price_{Sys.Date()}.png'))
 
