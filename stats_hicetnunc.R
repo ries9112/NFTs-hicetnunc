@@ -540,5 +540,32 @@ ggsave('rsal_price.png')
 ggsave(glue('archive/rsal_price/rsal_price_{Sys.Date()}.png'))
 
 
+# NOW TZ10X
+# Pull data
+tz10x_price <- pin_get("tz10x_price", "pins_repo")
+# Daily Users
+ggplot(data = tz10x_price,
+       aes(x = as.POSIXct(date_time_utc), y = tz10x_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(stats_hicetnunc$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = tz10x_price == max(tz10x_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', tz10x_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = tz10x_price == min(tz10x_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', tz10x_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of TZ10X ($XTZ)')) 
+# Save chart as image
+ggsave('tz10x_price.png')
+# Also archive
+ggsave(glue('archive/tz10x_price/tz10x_price_{Sys.Date()}.png'))
+
 
 
