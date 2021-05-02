@@ -4,7 +4,7 @@ library(pacman)
 
 # Load packages
 p_load('pins','ggplot2','anytime','ggthemes','fs','gganimate','magick','dplyr','devtools',
-       'transformr', 'ggforce','scales','tidyr','glue','darklyplot','ggfx')
+       'transformr', 'ggforce','scales','tidyr','glue','darklyplot','ggfx', 'gridExtra')
 
 # Register Board for data pull
 board_register("https://raw.githubusercontent.com/predictcrypto/pins/master/","pins_repo")
@@ -595,3 +595,11 @@ ggsave('bdao_price.png')
 # Also archive
 ggsave(glue('archive/bdao_price/bdao_price_{Sys.Date()}.png'))
 
+
+# hDAO Distribution
+hdao_holders <- pin_get("hdao_holders", "pins_repo")
+# Take screenshot of top holders
+png("hdao_top_holders.png")
+p <- tableGrob(head(select(hdao_holders, address, hdao_value, percent_of_supply),20))
+grid.arrange(top = "Distribution of hDAO supply", p)
+dev.off()
