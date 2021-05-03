@@ -603,3 +603,8 @@ png("hdao_top_holders.png")
 p <- tableGrob(head(select(hdao_holders, address, hdao_value, percent_of_supply),20))
 grid.arrange(top = paste("Distribution of hDAO supply -",max(hdao_holders$date, na.rm=T)),  p)
 dev.off()
+# Archive
+png("hdao_supply/hdao_top_holders.png")
+p <- tableGrob(head(select(hdao_holders, address, hdao_value, percent_of_supply),20))
+grid.arrange(top = paste("Distribution of hDAO supply -",max(hdao_holders$date, na.rm=T)),  p)
+dev.off()
