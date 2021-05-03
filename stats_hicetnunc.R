@@ -601,5 +601,5 @@ hdao_holders <- pin_get("hdao_holders", "pins_repo")
 # Take screenshot of top holders
 png("hdao_top_holders.png")
 p <- tableGrob(head(select(hdao_holders, address, hdao_value, percent_of_supply),20))
-grid.arrange(top = "Distribution of hDAO supply", p)
+grid.arrange(top = paste("Distribution of hDAO supply -",Sys.Date()),  p)
 dev.off()
