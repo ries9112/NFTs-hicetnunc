@@ -29,8 +29,8 @@ ggplot(data = stats_hicetnunc,
                         description = paste0('Min daily users - ', stats_day_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
-  scale_y_continuous('Number of Users') +
-  ggtitle(paste('hic et nunc Daily Users')) 
+  scale_y_continuous('Number of Collectors') +
+  ggtitle(paste('hic et nunc Daily Collectors')) 
 # Save chart as image
 ggsave('stats_hicetnunc_daily_users.png')
 # Also archive
@@ -54,8 +54,8 @@ ggplot(data = stats_hicetnunc,
                         description = paste0('Min daily txs - ', stats_day_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
-  scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('hic et nunc Daily Transactions')) 
+  scale_y_continuous('Number of Purchases') +
+  ggtitle(paste('hic et nunc Daily Purchases')) 
 # Save chart as image
 ggsave('stats_hicetnunc_daily_txs.png')
 # Also archive
@@ -79,8 +79,8 @@ ggplot(data = stats_hicetnunc,
                         description = paste0('Min weekly users - ', stats_week_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
-  scale_y_continuous('Number of Users') +
-  ggtitle(paste('hic et nunc Weekly Users')) 
+  scale_y_continuous('Number of Collectors') +
+  ggtitle(paste('hic et nunc Weekly Collectors')) 
 # Save chart as image
 ggsave('stats_hicetnunc_week_users.png')
 # Also archive
@@ -104,8 +104,8 @@ ggplot(data = stats_hicetnunc,
                         description = paste0('Min weekly txs - ', stats_week_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
-  scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('hic et nunc Weekly Transactions')) 
+  scale_y_continuous('Number of Purchases') +
+  ggtitle(paste('hic et nunc Weekly Purchases')) 
 # Save chart as image
 ggsave('stats_hicetnunc_week_txs.png')
 # Also archive
@@ -129,8 +129,8 @@ ggplot(data = stats_hicetnunc,
                         description = paste0('Min monthly users - ', stats_month_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
-  scale_y_continuous('Number of Users') +
-  ggtitle(paste('hic et nunc Monthly Users')) 
+  scale_y_continuous('Number of Collectors') +
+  ggtitle(paste('hic et nunc Monthly Collectors')) 
 # Save chart as image
 ggsave('stats_hicetnunc_month_users.png')
 # Also archive
@@ -154,8 +154,8 @@ ggplot(data = stats_hicetnunc,
                         description = paste0('Min monthly txs - ', stats_month_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
-  scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('hic et nunc Monthly Transactions')) 
+  scale_y_continuous('Number of Purchases') +
+  ggtitle(paste('hic et nunc Monthly Purchases')) 
 # Save chart as image
 ggsave('stats_hicetnunc_month_txs.png')
 # Also archive
@@ -175,8 +175,8 @@ ggplot(data = stats_hicetnunc,
                         description = paste0('all time users - ', stats_all_users))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
-  scale_y_continuous('Number of Users') +
-  ggtitle(paste('hic et nunc Total Users')) 
+  scale_y_continuous('Number of Collectors') +
+  ggtitle(paste('hic et nunc Total Collectors')) 
 # Save chart as image
 ggsave('stats_hicetnunc_all_users.png')
 # Also archive
@@ -195,8 +195,8 @@ ggplot(data = stats_hicetnunc,
                         description = paste0('all time txs - ', stats_all_txs))) +
   theme_solarized() +
   scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
-  scale_y_continuous('Number of Transactions') +
-  ggtitle(paste('hic et nunc All-Time Transactions')) 
+  scale_y_continuous('Number of Purchases') +
+  ggtitle(paste('hic et nunc All-Time Purchases')) 
 # Save chart as image
 ggsave('stats_hicetnunc_all_txs.png')
 # Also make an archive
@@ -225,8 +225,8 @@ ggplot(data = stats_hicetnunc_percent,
        caption='Data source: better-call.dev API') + 
   theme_solarized() +
   xlab('Date Time Collected (UTC)') +
-  ylab('Active Users % of Total') +
-  ggtitle(paste('hic et nunc Active Users - Percent of Total'))  + 
+  ylab('Active Collectors - % of Total') +
+  ggtitle(paste('hic et nunc Active Collectors - Percent of Total'))  + 
   labs(color='Days Out') +
   scale_y_continuous(labels = scales::percent) +
   scale_x_datetime(date_labels = "%m/%d/%y") +
