@@ -11,7 +11,7 @@ board_register("https://raw.githubusercontent.com/predictcrypto/pins/master/","p
 
 #### Visualize Stats ####
 # Pull data
-stats_hicetnunc <- pin_get("stats_hicetnunc", "pins_repo")
+stats_hicetnunc <- pin_get("stats_hicetnunc_new", "pins_repo")
 # Daily Users
 ggplot(data = stats_hicetnunc,
        aes(x = as.POSIXct(date_time_utc), y = stats_day_users)) + 
@@ -608,3 +608,10 @@ png("archive/hdao_supply/hdao_top_holders.png")
 p <- tableGrob(head(select(hdao_holders, address, hdao_value, percent_of_supply),20))
 grid.arrange(top = paste("Top hDAO Holders -",max(hdao_holders$date, na.rm=T)),  p)
 dev.off()
+
+
+
+# TODO - add charts from incorrect smart contract as free ones!
+
+
+
