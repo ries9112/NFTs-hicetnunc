@@ -620,6 +620,63 @@ ggsave('bdao_price.png')
 ggsave(glue('archive/bdao_price/bdao_price_{Sys.Date()}.png'))
 
 
+# NOW PLENTY
+# Pull data
+plenty_price <- pin_get("plenty_price", "pins_repo")
+# Daily Users
+ggplot(data = plenty_price,
+       aes(x = as.POSIXct(date_time_utc), y = PLENTY_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(plenty_price$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = PLENTY_price == max(PLENTY_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', PLENTY_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = PLENTY_price == min(PLENTY_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', PLENTY_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of PLENTY ($XTZ)')) 
+# Save chart as image
+ggsave('plenty_price.png')
+# Also archive
+ggsave(glue('archive/plenty_price/plenty_price_{Sys.Date()}.png'))
+
+
+# NOW FLAME
+# Pull data
+flame_price <- pin_get("flame_price", "pins_repo")
+# Daily Users
+ggplot(data = flame_price,
+       aes(x = as.POSIXct(date_time_utc), y = flame_price)) + 
+  geom_line(size=1.2) +
+  geom_point(size=2, color='dark green') +
+  labs(subtitle=paste('Latest data collected on:', max(flame_price$date_time_utc), ' - UTC'),
+       caption='Data source: tzkt.io API') + 
+  # Circle max
+  geom_mark_ellipse(aes(filter = flame_price == max(flame_price),
+                        label = date_time_utc,
+                        description = paste0('Max price - ', flame_price))) +
+  # Now the same to circle the minimum:
+  geom_mark_ellipse(aes(filter = flame_price == min(flame_price),
+                        label = date_time_utc,
+                        description = paste0('Min price - ', flame_price))) +
+  theme_solarized() +
+  scale_x_datetime('Date Time Collected (UTC)',date_labels = "%m/%d/%y") +
+  scale_y_continuous('Price ($XTZ)') +
+  ggtitle(paste('Price of FLAME ($XTZ)')) 
+# Save chart as image
+ggsave('flame_price.png')
+# Also archive
+ggsave(glue('archive/flame_price/flame_price_{Sys.Date()}.png'))
+
+
+
 # hDAO Distribution
 hdao_holders <- pin_get("hdao_holders", "pins_repo")
 # Take screenshot of top holders
