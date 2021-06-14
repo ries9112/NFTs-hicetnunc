@@ -34,7 +34,7 @@ ggplot(data = stats_hicetnunc,
 # Save chart as image
 ggsave('stats_hicetnunc_daily_users.png')
 # Also archive
-ggsave(glue('archive/users/stats_hicetnunc_daily_users_{Sys.Date()}.png'))
+#ggsave(glue('archive/users/stats_hicetnunc_daily_users_{Sys.Date()}.png'))
 
 
 # Daily Transactions
@@ -59,7 +59,7 @@ ggplot(data = stats_hicetnunc,
 # Save chart as image
 ggsave('stats_hicetnunc_daily_txs.png')
 # Also archive
-ggsave(glue('archive/transactions/stats_hicetnunc_daily_txs_{Sys.Date()}.png'))
+#ggsave(glue('archive/transactions/stats_hicetnunc_daily_txs_{Sys.Date()}.png'))
 
 
 # Weekly Users
@@ -84,7 +84,7 @@ ggplot(data = stats_hicetnunc,
 # Save chart as image
 ggsave('stats_hicetnunc_week_users.png')
 # Also archive
-ggsave(glue('archive/users/stats_hicetnunc_week_users_{Sys.Date()}.png'))
+#ggsave(glue('archive/users/stats_hicetnunc_week_users_{Sys.Date()}.png'))
 
 
 # Weekly Transactions
@@ -109,7 +109,7 @@ ggplot(data = stats_hicetnunc,
 # Save chart as image
 ggsave('stats_hicetnunc_week_txs.png')
 # Also archive
-ggsave(glue('archive/transactions/stats_hicetnunc_week_txs_{Sys.Date()}.png'))
+#ggsave(glue('archive/transactions/stats_hicetnunc_week_txs_{Sys.Date()}.png'))
 
 
 # Monthly Users
@@ -134,7 +134,7 @@ ggplot(data = stats_hicetnunc,
 # Save chart as image
 ggsave('stats_hicetnunc_month_users.png')
 # Also archive
-ggsave(glue('archive/users/stats_hicetnunc_month_users_{Sys.Date()}.png'))
+#ggsave(glue('archive/users/stats_hicetnunc_month_users_{Sys.Date()}.png'))
 
 
 # Monthly Transactions
@@ -159,7 +159,7 @@ ggplot(data = stats_hicetnunc,
 # Save chart as image
 ggsave('stats_hicetnunc_month_txs.png')
 # Also archive
-ggsave(glue('archive/transactions/stats_hicetnunc_month_txs_{Sys.Date()}.png'))
+#ggsave(glue('archive/transactions/stats_hicetnunc_month_txs_{Sys.Date()}.png'))
 
 
 # All-time Users
@@ -180,7 +180,7 @@ ggplot(data = stats_hicetnunc,
 # Save chart as image
 ggsave('stats_hicetnunc_all_users.png')
 # Also archive
-ggsave(glue('archive/users/stats_hicetnunc_all_users_{Sys.Date()}.png'))
+#ggsave(glue('archive/users/stats_hicetnunc_all_users_{Sys.Date()}.png'))
 
 # All-time Transactions
 ggplot(data = stats_hicetnunc,
@@ -200,7 +200,7 @@ ggplot(data = stats_hicetnunc,
 # Save chart as image
 ggsave('stats_hicetnunc_all_txs.png')
 # Also make an archive
-ggsave(glue('archive/transactions/stats_hicetnunc_all_txs_{Sys.Date()}.png'))
+#ggsave(glue('archive/transactions/stats_hicetnunc_all_txs_{Sys.Date()}.png'))
 
 
 # TODO - Calculate % of all the network that is active based on day, week, month
@@ -235,7 +235,7 @@ ggplot(data = stats_hicetnunc_percent,
 # Save chart as image
 ggsave('stats_hicetnunc_active_users.png')
 # Also make an archive
-ggsave(glue('archive/active_users_percent/stats_hicetnunc_active_users_{Sys.Date()}.png'))
+#ggsave(glue('archive/active_users_percent/stats_hicetnunc_active_users_{Sys.Date()}.png'))
 
 # 
 # # GGFX - WAITING TO PROPERLY TEST inner AND outer GLOW ONCE MORE DATA COMES IN!
@@ -286,7 +286,7 @@ ggplot(data = hdao_price,
 # Save chart as image
 ggsave('hdao_price.png')
 # Also archive
-ggsave(glue('archive/hdao_price/hdao_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/hdao_price/hdao_price_{Sys.Date()}.png'))
 
 # Now WEEKLY chart
 ggplot(data = filter(hdao_price, date_utc > Sys.Date()-7),
@@ -310,7 +310,7 @@ ggplot(data = filter(hdao_price, date_utc > Sys.Date()-7),
 # Save chart as image
 ggsave('hdao_price_7d.png')
 # Also archive
-ggsave(glue('archive/hdao_price/hdao_price_7d_{Sys.Date()}.png'))
+#ggsave(glue('archive/hdao_price/hdao_price_7d_{Sys.Date()}.png'))
 
 
 
@@ -339,7 +339,7 @@ ggplot(data = wrap_price,
 # Save chart as image
 ggsave('wrap_price.png')
 # Also archive
-ggsave(glue('archive/wrap_price/wrap_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/wrap_price/wrap_price_{Sys.Date()}.png'))
 
 
 # NOW wxtz
@@ -367,7 +367,7 @@ ggplot(data = wxtz_price,
 # Save chart as image
 ggsave('wxtz_price.png')
 # Also archive
-ggsave(glue('archive/wxtz_price/wxtz_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/wxtz_price/wxtz_price_{Sys.Date()}.png'))
 
 
 # NOW stkr
@@ -395,7 +395,7 @@ ggplot(data = stkr_price,
 # Save chart as image
 ggsave('stkr_price.png')
 # Also archive
-ggsave(glue('archive/stkr_price/stkr_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/stkr_price/stkr_price_{Sys.Date()}.png'))
 
 
 # NOW kusd
@@ -423,7 +423,7 @@ ggplot(data = kusd_price,
 # Save chart as image
 ggsave('kusd_price.png')
 # Also archive
-ggsave(glue('archive/kusd_price/kusd_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/kusd_price/kusd_price_{Sys.Date()}.png'))
 
 
 # NOW usds
@@ -451,7 +451,7 @@ ggplot(data = usds_price,
 # Save chart as image
 ggsave('usds_price.png')
 # Also archive
-ggsave(glue('archive/usds_price/usds_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/usds_price/usds_price_{Sys.Date()}.png'))
 
 
 # NOW usdtz
@@ -479,7 +479,7 @@ ggplot(data = usdtz_price,
 # Save chart as image
 ggsave('usdtz_price.png')
 # Also archive
-ggsave(glue('archive/usdtz_price/usdtz_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/usdtz_price/usdtz_price_{Sys.Date()}.png'))
 
 
 # NOW ethtz
@@ -507,7 +507,7 @@ ggplot(data = ethtz_price,
 # Save chart as image
 ggsave('ethtz_price.png')
 # Also archive
-ggsave(glue('archive/ethtz_price/ethtz_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/ethtz_price/ethtz_price_{Sys.Date()}.png'))
 
 # NOW sDAO
 # Pull data
@@ -534,7 +534,7 @@ ggplot(data = sdao_price,
 # Save chart as image
 ggsave('sdao_price.png')
 # Also archive
-ggsave(glue('archive/sdao_price/sdao_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/sdao_price/sdao_price_{Sys.Date()}.png'))
 
 # NOW RSAL
 # Pull data
@@ -561,7 +561,7 @@ ggplot(data = rsal_price,
 # Save chart as image
 ggsave('rsal_price.png')
 # Also archive
-ggsave(glue('archive/rsal_price/rsal_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/rsal_price/rsal_price_{Sys.Date()}.png'))
 
 
 # NOW TZ10X
@@ -589,7 +589,7 @@ ggplot(data = tz10x_price,
 # Save chart as image
 ggsave('tz10x_price.png')
 # Also archive
-ggsave(glue('archive/tz10x_price/tz10x_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/tz10x_price/tz10x_price_{Sys.Date()}.png'))
 
 
 # NOW bDAO
@@ -617,7 +617,7 @@ ggplot(data = bdao_price,
 # Save chart as image
 ggsave('bdao_price.png')
 # Also archive
-ggsave(glue('archive/bdao_price/bdao_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/bdao_price/bdao_price_{Sys.Date()}.png'))
 
 
 # NOW PLENTY
@@ -645,7 +645,7 @@ ggplot(data = plenty_price,
 # Save chart as image
 ggsave('plenty_price.png')
 # Also archive
-ggsave(glue('archive/plenty_price/plenty_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/plenty_price/plenty_price_{Sys.Date()}.png'))
 
 
 # NOW FLAME
@@ -673,7 +673,7 @@ ggplot(data = flame_price,
 # Save chart as image
 ggsave('flame_price.png')
 # Also archive
-ggsave(glue('archive/flame_price/flame_price_{Sys.Date()}.png'))
+#ggsave(glue('archive/flame_price/flame_price_{Sys.Date()}.png'))
 
 
 
@@ -685,10 +685,10 @@ p <- tableGrob(head(select(hdao_holders, address, hdao_value, percent_of_supply)
 grid.arrange(top = paste("Top hDAO Holders -",max(hdao_holders$date, na.rm=T)),  p)
 dev.off()
 # Archive
-png("archive/hdao_supply/hdao_top_holders.png")
-p <- tableGrob(head(select(hdao_holders, address, hdao_value, percent_of_supply),20))
-grid.arrange(top = paste("Top hDAO Holders -",max(hdao_holders$date, na.rm=T)),  p)
-dev.off()
+#png("archive/hdao_supply/hdao_top_holders.png")
+#p <- tableGrob(head(select(hdao_holders, address, hdao_value, percent_of_supply),20))
+#grid.arrange(top = paste("Top hDAO Holders -",max(hdao_holders$date, na.rm=T)),  p)
+#dev.off()
 
 
 
