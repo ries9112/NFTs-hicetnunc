@@ -1,0 +1,47 @@
+# Gini coefficient of hDAO distribution
+library(pins)
+library(tidyverse)
+library(REAT)
+
+# Register Board for data pull
+board_register("https://raw.githubusercontent.com/predictcrypto/pins/master/","pins_repo")
+
+#### Visualize Stats ####
+# hDAO Distribution
+hdao_holders <- pin_get("hdao_holders", "pins_repo")
+
+# Exclude KT1 wallets
+# first add initials
+hdao_holders = mutate(hdao_holders, start = substr(address, 1, 3))
+# filter out those that start with KT1 now
+hdao_holders = subset(hdao_holders, start != 'KT1')
+# arrange by largest values first
+hdao_holders = arrange(hdao_holders, desc(hdao_value))
+
+# Calculate gini coefficient:
+gini(hdao_holders$hdao_value)
+# Plot lorenz curve
+gini(hdao_holders$hdao_value, lc=T, lcg=T)
+par(new=TRUE)
+barplot(arrange(hdao_holders, hdao_value)$hdao_value,yaxt='n',border='orange')
+
+
+
+# Test cutting off at minimum of 10 hDAO:
+# Calculate gini coefficient:
+gini(filter(hdao_holders,hdao_value > 10)$hdao_value)
+# Plot lorenz curve
+gini(filter(hdao_holders,hdao_value > 10)$hdao_value, lc=T, lcg=T)
+par(new=TRUE)
+barplot(arrange(filter(hdao_holders,hdao_value > 10), hdao_value)$hdao_value,yaxt='n',border='orange')
+
+
+
+# Test cutting off at minimum of 100 hDAO:
+# Calculate gini coefficient:
+gini(filter(hdao_holders,hdao_value > 100)$hdao_value)
+# Plot lorenz curve
+gini(filter(hdao_holders,hdao_value > 100)$hdao_value, lc=T, lcg=T)
+par(new=TRUE)
+barplot(arrange(filter(hdao_holders,hdao_value > 100), hdao_value)$hdao_value,yaxt='n',border='orange')
+
