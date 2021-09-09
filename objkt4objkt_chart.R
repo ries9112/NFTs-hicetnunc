@@ -15,17 +15,7 @@ graphql_request = Query$new()
 # Define query
 graphql_request$query('mydata', paste0('query mySecondaryMarketSales {
   hic_et_nunc_trade(where: {token: {token_tags: {tag: {tag: {_ilike: ',tag,'}, _or: {}}}}}, order_by: {swap: {price: desc}}) {
-    token {
-      title
-      mime
-      description
-      id
-      artifact_uri
-      display_uri
-    }
     timestamp
-    amount
-    token_id
     swap {
       price
     }
