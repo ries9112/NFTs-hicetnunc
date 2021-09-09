@@ -1,7 +1,5 @@
 name: Update Images
-on:  
-  schedule:
-    - cron: '05 * * * *' 
+on:  [push]
 
 jobs:
   build:
