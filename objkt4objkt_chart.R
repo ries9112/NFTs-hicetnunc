@@ -1,8 +1,5 @@
-library(ghql)
-library(jsonlite)
-library(tidyverse)
-library(ggdark)
-library(scales)
+library(pacman)
+p_load('ghql','jsonlite','tidyverse','ggdark','scales')
 
 # Tag to lookup:
 tag = "objkt4objkt"
