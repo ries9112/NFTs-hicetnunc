@@ -1,5 +1,7 @@
 name: Update Images
-on:  [push]
+on: 
+  schedule:
+    - cron: '05 * * * *' 
 
 jobs:
   build:
@@ -15,7 +17,7 @@ jobs:
           restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-3-
       - name: Run Script
         run: |-
-          Rscript -e "install.packages(c('renv','pacman','Rcpp'))"
+          Rscript -e "install.packages(c('renv','pacman'))"
           Rscript -e 'renv::consent(provided = TRUE)'
           Rscript -e "renv::restore()"
           Rscript -e "source('stats_hicetnunc.R')"
