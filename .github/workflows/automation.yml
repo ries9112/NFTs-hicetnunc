@@ -21,6 +21,7 @@ jobs:
           Rscript -e 'renv::consent(provided = TRUE)'
           Rscript -e "renv::restore()"
           Rscript -e "source('stats_hicetnunc.R')"
+          Rscript -e "source('objkt4objkt_chart.R')"
       - name: Commit and push files
         run: |
           git config --local user.email "ries9112@colorado.edu"
