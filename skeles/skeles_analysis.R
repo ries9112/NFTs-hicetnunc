@@ -146,6 +146,3 @@ doubles = full_data %>% filter(hat == glasses | hat == body | hat == arm | hat =
 # percentage
 (nrow(doubles)/nrow(full_data))*100
 
-# Are there any that have all of the same trait?
-
-
