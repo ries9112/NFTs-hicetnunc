@@ -1,7 +1,7 @@
 name: Update Image Data Name Service
 on:
   schedule:
-    - cron: '5 * * * *' 
+    - cron: '5,15,25,35,45,55 * * * *' 
     
 jobs:
   build:
